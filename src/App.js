@@ -144,13 +144,10 @@ function App() {
                   <VictoryPie
                     radius={100}
                     labels={() => null}
-                    colorScale={["#3BFF00", "yellow", "#FFA200", "#BE7CFF", "pink", "red"]}
+                    colorScale={["#3BFF00", "red"]}
                     data={[
-                      { x: "90-100%", y: StudentsData[0].FeedbackStats.Mathematics.Review5 },
-                      { x: "80-90%", y: StudentsData[0].FeedbackStats.Mathematics.Review4 },
-                      { x: "70-80%", y: StudentsData[0].FeedbackStats.Mathematics.Review3 },
-                      { x: "60-70%", y: StudentsData[0].FeedbackStats.Mathematics.Review2 },
-                      { x: "50-60%", y: StudentsData[0].FeedbackStats.Mathematics.Review1 }
+                      { x: "Pass", y: StudentsData[0].NoOfStudents - StudentsData[0].MarksStats.Mathematics.MarkF },
+                      { x: "Fail", y: StudentsData[0].MarksStats.Mathematics.MarkF }
                     ]}
                   />
                 </div>
@@ -158,16 +155,44 @@ function App() {
                   <VictoryLegend x={125} y={50}
                     orientation="vertical"
                     gutter={50}
-                    colorScale={["#3BFF00", "yellow", "#FFA200", "#BE7CFF", "pink", "red"]}
+                    colorScale={["#3BFF00", "red"]}
                     style={{ border: { stroke: "black" } }}
                     data={[
-                      { name: "5 stars - " + StudentsData[0].FeedbackStats.Mathematics.Review5 + " - " + Math.round((StudentsData[0].FeedbackStats.Mathematics.Review5 / StudentsData[0].NoOfStudents) * 100) + "%" },
-                      { name: "4 stars - " + StudentsData[0].FeedbackStats.Mathematics.Review4 + " - " + Math.round((StudentsData[0].FeedbackStats.Mathematics.Review4 / StudentsData[0].NoOfStudents) * 100) + "%" },
-                      { name: "3 stars - " + StudentsData[0].FeedbackStats.Mathematics.Review3 + " - " + Math.round((StudentsData[0].FeedbackStats.Mathematics.Review3 / StudentsData[0].NoOfStudents) * 100) + "%" },
-                      { name: "2 stars - " + StudentsData[0].FeedbackStats.Mathematics.Review2 + " - " + Math.round((StudentsData[0].FeedbackStats.Mathematics.Review2 / StudentsData[0].NoOfStudents) * 100) + "%" },
-                      { name: "1 star - " + StudentsData[0].FeedbackStats.Mathematics.Review1 + " - " + Math.round((StudentsData[0].FeedbackStats.Mathematics.Review1 / StudentsData[0].NoOfStudents) * 100) + "%" },
+                      { name: "Pass -" + (StudentsData[0].NoOfStudents - StudentsData[0].MarksStats.Mathematics.MarkF) + " - " + Math.round(((StudentsData[0].NoOfStudents - StudentsData[0].MarksStats.Mathematics.MarkF) / StudentsData[0].NoOfStudents) * 100) + "%" },
+                      { name: "Fail -" + StudentsData[0].MarksStats.Mathematics.MarkF + " - " + Math.round((StudentsData[0].MarksStats.Mathematics.MarkF / StudentsData[0].NoOfStudents) * 100) + "%" },
                     ]}
                   />
+                  </div>
+                <div className="row">
+                  <div className="col">
+                    <VictoryPie
+                      radius={100}
+                      labels={() => null}
+                      colorScale={["#3BFF00", "yellow", "#FFA200", "#BE7CFF", "pink", "red"]}
+                      data={[
+                        { x: "90-100%", y: StudentsData[0].FeedbackStats.Mathematics.Review5 },
+                        { x: "80-90%", y: StudentsData[0].FeedbackStats.Mathematics.Review4 },
+                        { x: "70-80%", y: StudentsData[0].FeedbackStats.Mathematics.Review3 },
+                        { x: "60-70%", y: StudentsData[0].FeedbackStats.Mathematics.Review2 },
+                        { x: "50-60%", y: StudentsData[0].FeedbackStats.Mathematics.Review1 }
+                      ]}
+                    />
+                  </div>
+                  <div className="col">
+                    <VictoryLegend x={125} y={50}
+                      orientation="vertical"
+                      gutter={50}
+                      colorScale={["#3BFF00", "yellow", "#FFA200", "#BE7CFF", "pink", "red"]}
+                      style={{ border: { stroke: "black" } }}
+                      data={[
+                        { name: "5 stars - " + StudentsData[0].FeedbackStats.Mathematics.Review5 + " - " + Math.round((StudentsData[0].FeedbackStats.Mathematics.Review5 / StudentsData[0].NoOfStudents) * 100) + "%" },
+                        { name: "4 stars - " + StudentsData[0].FeedbackStats.Mathematics.Review4 + " - " + Math.round((StudentsData[0].FeedbackStats.Mathematics.Review4 / StudentsData[0].NoOfStudents) * 100) + "%" },
+                        { name: "3 stars - " + StudentsData[0].FeedbackStats.Mathematics.Review3 + " - " + Math.round((StudentsData[0].FeedbackStats.Mathematics.Review3 / StudentsData[0].NoOfStudents) * 100) + "%" },
+                        { name: "2 stars - " + StudentsData[0].FeedbackStats.Mathematics.Review2 + " - " + Math.round((StudentsData[0].FeedbackStats.Mathematics.Review2 / StudentsData[0].NoOfStudents) * 100) + "%" },
+                        { name: "1 star - " + StudentsData[0].FeedbackStats.Mathematics.Review1 + " - " + Math.round((StudentsData[0].FeedbackStats.Mathematics.Review1 / StudentsData[0].NoOfStudents) * 100) + "%" },
+                      ]}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
