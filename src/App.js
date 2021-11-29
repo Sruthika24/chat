@@ -99,13 +99,17 @@ function App() {
           </ul>
         </div>
       </div>
-
+      <br  />
+      <div className="name"> ACADEMIC STATISTICS </div>
 
       {
         classVIIIIsChecked === true ?
-
+        
           (Maths === true ?
             <div className="container">
+              <div className="content">{StudentsData[0].Class} Standard</div>
+        <div className="content">Student Strength : {StudentsData[0].NoOfStudents}</div>
+                 
               <div className="row">
                 <div className="col">
                   <VictoryPie
@@ -139,22 +143,24 @@ function App() {
                   />
                 </div>
               </div>
+              
               <div className="row">
                 <div className="col">
                   <VictoryPie
                     radius={100}
                     labels={() => null}
-                    colorScale={["#3BFF00", "red"]}
-                    data={[
-                      { x: "Pass", y: StudentsData[0].NoOfStudents - StudentsData[0].MarksStats.Mathematics.MarkF },
-                      { x: "Fail", y: StudentsData[0].MarksStats.Mathematics.MarkF }
-                    ]}
+                              colorScale={["#3BFF00", "red"]}
+                              data={[
+                                { x: "Pass", y: StudentsData[0].NoOfStudents - StudentsData[0].MarksStats.Mathematics.MarkF },
+                                { x: "Fail", y: StudentsData[0].MarksStats.Mathematics.MarkF }
+                              ]}
                   />
                 </div>
                 <div className="col">
                   <VictoryLegend x={125} y={50}
                     orientation="vertical"
                     gutter={50}
+                   
                     colorScale={["#3BFF00", "red"]}
                     style={{ border: { stroke: "black" } }}
                     data={[
@@ -162,37 +168,41 @@ function App() {
                       { name: "Fail -" + StudentsData[0].MarksStats.Mathematics.MarkF + " - " + Math.round((StudentsData[0].MarksStats.Mathematics.MarkF / StudentsData[0].NoOfStudents) * 100) + "%" },
                     ]}
                   />
-                  </div>
-                <div className="row">
-                  <div className="col">
-                    <VictoryPie
-                      radius={100}
-                      labels={() => null}
-                      colorScale={["#3BFF00", "yellow", "#FFA200", "#BE7CFF", "pink", "red"]}
-                      data={[
-                        { x: "90-100%", y: StudentsData[0].FeedbackStats.Mathematics.Review5 },
-                        { x: "80-90%", y: StudentsData[0].FeedbackStats.Mathematics.Review4 },
-                        { x: "70-80%", y: StudentsData[0].FeedbackStats.Mathematics.Review3 },
-                        { x: "60-70%", y: StudentsData[0].FeedbackStats.Mathematics.Review2 },
-                        { x: "50-60%", y: StudentsData[0].FeedbackStats.Mathematics.Review1 }
-                      ]}
-                    />
-                  </div>
-                  <div className="col">
-                    <VictoryLegend x={125} y={50}
-                      orientation="vertical"
-                      gutter={50}
-                      colorScale={["#3BFF00", "yellow", "#FFA200", "#BE7CFF", "pink", "red"]}
-                      style={{ border: { stroke: "black" } }}
-                      data={[
-                        { name: "5 stars - " + StudentsData[0].FeedbackStats.Mathematics.Review5 + " - " + Math.round((StudentsData[0].FeedbackStats.Mathematics.Review5 / StudentsData[0].NoOfStudents) * 100) + "%" },
-                        { name: "4 stars - " + StudentsData[0].FeedbackStats.Mathematics.Review4 + " - " + Math.round((StudentsData[0].FeedbackStats.Mathematics.Review4 / StudentsData[0].NoOfStudents) * 100) + "%" },
-                        { name: "3 stars - " + StudentsData[0].FeedbackStats.Mathematics.Review3 + " - " + Math.round((StudentsData[0].FeedbackStats.Mathematics.Review3 / StudentsData[0].NoOfStudents) * 100) + "%" },
-                        { name: "2 stars - " + StudentsData[0].FeedbackStats.Mathematics.Review2 + " - " + Math.round((StudentsData[0].FeedbackStats.Mathematics.Review2 / StudentsData[0].NoOfStudents) * 100) + "%" },
-                        { name: "1 star - " + StudentsData[0].FeedbackStats.Mathematics.Review1 + " - " + Math.round((StudentsData[0].FeedbackStats.Mathematics.Review1 / StudentsData[0].NoOfStudents) * 100) + "%" },
-                      ]}
-                    />
-                  </div>
+                </div>
+              </div>   
+                    <div className="row">
+                
+             <div className="name"> FEEDBABCK STATISTICS </div>
+              
+                <div className="col">
+                  <VictoryPie
+                    radius={100}
+                    labels={() => null}
+                    colorScale={["#3BFF00", "yellow", "#FFA200", "#BE7CFF", "pink", "red"]}
+                    data={[
+                      { x: "90-100%", y: StudentsData[0].FeedbackStats.Mathematics.Review5 },
+                      { x: "80-90%", y: StudentsData[0].FeedbackStats.Mathematics.Review4 },
+                      { x: "70-80%", y: StudentsData[0].FeedbackStats.Mathematics.Review3 },
+                      { x: "60-70%", y: StudentsData[0].FeedbackStats.Mathematics.Review2 },
+                      { x: "50-60%", y: StudentsData[0].FeedbackStats.Mathematics.Review1 }
+                    ]}
+                  />
+                </div>
+                <div className="col">
+                  <VictoryLegend x={125} y={50}
+                    orientation="vertical"
+                    gutter={50}
+                    colorScale={["#3BFF00", "yellow", "#FFA200", "#BE7CFF", "pink", "red"]}
+                    style={{ border: { stroke: "black" } }}
+                    data={[
+                      { name: "5 stars - " + StudentsData[0].FeedbackStats.Mathematics.Review5 + " - " + Math.round((StudentsData[0].FeedbackStats.Mathematics.Review5 / StudentsData[0].NoOfStudents) * 100) + "%" },
+                      { name: "4 stars - " + StudentsData[0].FeedbackStats.Mathematics.Review4 + " - " + Math.round((StudentsData[0].FeedbackStats.Mathematics.Review4 / StudentsData[0].NoOfStudents) * 100) + "%" },
+                      { name: "3 stars - " + StudentsData[0].FeedbackStats.Mathematics.Review3 + " - " + Math.round((StudentsData[0].FeedbackStats.Mathematics.Review3 / StudentsData[0].NoOfStudents) * 100) + "%" },
+                      { name: "2 stars - " + StudentsData[0].FeedbackStats.Mathematics.Review2 + " - " + Math.round((StudentsData[0].FeedbackStats.Mathematics.Review2 / StudentsData[0].NoOfStudents) * 100) + "%" },
+                      { name: "1 star - " + StudentsData[0].FeedbackStats.Mathematics.Review1 + " - " + Math.round((StudentsData[0].FeedbackStats.Mathematics.Review1 / StudentsData[0].NoOfStudents) * 100) + "%" },
+                    ]}
+                  />
+
                 </div>
               </div>
             </div>
@@ -269,6 +279,9 @@ function App() {
           :
           classIXIsChecked === true ?
             (Maths === true ? <div className="container">
+              <div className="content">{StudentsData[1].Class} Standard</div>
+        <div className="content">Student Strength : {StudentsData[1].NoOfStudents}</div>
+              
               <div className="row">
                 <div className="col">
                   <VictoryPie
@@ -301,6 +314,33 @@ function App() {
                     ]}
                   />
                 </div>
+                  
+              <div className="row">
+                <div className="col">
+                  <VictoryPie
+                    radius={100}
+                    labels={() => null}
+                              colorScale={["#3BFF00", "red"]}
+                              data={[
+                                { x: "Pass", y: StudentsData[1].NoOfStudents - StudentsData[1].MarksStats.Mathematics.MarkF },
+                                { x: "Fail", y: StudentsData[1].MarksStats.Mathematics.MarkF }
+                              ]}
+                  />
+                </div>
+                <div className="col">
+                  <VictoryLegend x={125} y={50}
+                    orientation="vertical"
+                    gutter={50}
+                   
+                    colorScale={["#3BFF00", "red"]}
+                    style={{ border: { stroke: "black" } }}
+                    data={[
+                      { name: "Pass -" + (StudentsData[1].NoOfStudents - StudentsData[1].MarksStats.Mathematics.MarkF) + " - " + Math.round(((StudentsData[1].NoOfStudents - StudentsData[1].MarksStats.Mathematics.MarkF) / StudentsData[1].NoOfStudents) * 100) + "%" },
+                      { name: "Fail -" + StudentsData[1].MarksStats.Mathematics.MarkF + " - " + Math.round((StudentsData[1].MarksStats.Mathematics.MarkF / StudentsData[1].NoOfStudents) * 100) + "%" },
+                    ]}
+                  />
+                </div>
+              </div>
                 <div className="row">
                   <div className="col">
                     <VictoryPie
@@ -316,6 +356,7 @@ function App() {
                       ]}
                     />
                   </div>
+                  
                   <div className="col">
                     <VictoryLegend x={125} y={50}
                       orientation="vertical"
@@ -367,6 +408,33 @@ function App() {
                       ]}
                     />
                   </div>
+                    
+              <div className="row">
+                <div className="col">
+                  <VictoryPie
+                    radius={100}
+                    labels={() => null}
+                              colorScale={["#3BFF00", "red"]}
+                              data={[
+                                { x: "Pass", y: StudentsData[1].NoOfStudents - StudentsData[1].MarksStats.Science.MarkF },
+                                { x: "Fail", y: StudentsData[1].MarksStats.Science.MarkF }
+                              ]}
+                  />
+                </div>
+                <div className="col">
+                  <VictoryLegend x={125} y={50}
+                    orientation="vertical"
+                    gutter={50}
+                   
+                    colorScale={["#3BFF00", "red"]}
+                    style={{ border: { stroke: "black" } }}
+                    data={[
+                      { name: "Pass -" + (StudentsData[1].NoOfStudents - StudentsData[1].MarksStats.Science.MarkF) + " - " + Math.round(((StudentsData[1].NoOfStudents - StudentsData[1].MarksStats.ScienceMarkF) / StudentsData[1].NoOfStudents) * 100) + "%" },
+                      { name: "Fail -" + StudentsData[1].MarksStats.Science.MarkF + " - " + Math.round((StudentsData[1].MarksStats.Science.MarkF / StudentsData[1].NoOfStudents) * 100) + "%" },
+                    ]}
+                  />
+                </div>
+              </div>
                   <div className="row">
                     <div className="col">
                       <VictoryPie
@@ -405,6 +473,9 @@ function App() {
               (
                 Maths === true ?
                   <div className="container">
+                <div className="content">{StudentsData[2].Class} Standard</div>
+        <div className="content">Student Strength : {StudentsData[2].NoOfStudents}</div>
+              
                     <div className="row">
                       <div className="col">
                         <VictoryPie
@@ -438,6 +509,33 @@ function App() {
                         />
                       </div>
                     </div>
+                      
+              <div className="row">
+                <div className="col">
+                  <VictoryPie
+                    radius={100}
+                    labels={() => null}
+                              colorScale={["#3BFF00", "red"]}
+                              data={[
+                                { x: "Pass", y: StudentsData[2].NoOfStudents - StudentsData[2].MarksStats.Mathematics.MarkF },
+                                { x: "Fail", y: StudentsData[2].MarksStats.Mathematics.MarkF }
+                              ]}
+                  />
+                </div>
+                <div className="col">
+                  <VictoryLegend x={125} y={50}
+                    orientation="vertical"
+                    gutter={50}
+                   
+                    colorScale={["#3BFF00", "red"]}
+                    style={{ border: { stroke: "black" } }}
+                    data={[
+                      { name: "Pass -" + (StudentsData[2].NoOfStudents - StudentsData[2].MarksStats.Mathematics.MarkF) + " - " + Math.round(((StudentsData[2].NoOfStudents - StudentsData[2].MarksStats.Mathematics.MarkF) / StudentsData[2].NoOfStudents) * 100) + "%" },
+                      { name: "Fail -" + StudentsData[2].MarksStats.Mathematics.MarkF + " - " + Math.round((StudentsData[2].MarksStats.Mathematics.MarkF / StudentsData[0].NoOfStudents) * 100) + "%" },
+                    ]}
+                  />
+                </div>
+              </div>
                     <div className="row">
                       <div className="col">
                         <VictoryPie
@@ -503,6 +601,33 @@ function App() {
                           ]}
                         />
                       </div>
+                       
+              <div className="row">
+                <div className="col">
+                  <VictoryPie
+                    radius={100}
+                    labels={() => null}
+                              colorScale={["#3BFF00", "red"]}
+                              data={[
+                                { x: "Pass", y: StudentsData[2].NoOfStudents - StudentsData[2].MarksStats.Science.MarkF },
+                                { x: "Fail", y: StudentsData[2].MarksStats.Science.MarkF }
+                              ]}
+                  />
+                </div>
+                <div className="col">
+                  <VictoryLegend x={125} y={50}
+                    orientation="vertical"
+                    gutter={50}
+                   
+                    colorScale={["#3BFF00", "red"]}
+                    style={{ border: { stroke: "black" } }}
+                    data={[
+                      { name: "Pass -" + (StudentsData[2].NoOfStudents - StudentsData[2].MarksStats.Science.MarkF) + " - " + Math.round(((StudentsData[2].NoOfStudents - StudentsData[2].MarksStats.Science.MarkF) / StudentsData[2].NoOfStudents) * 100) + "%" },
+                      { name: "Fail -" + StudentsData[2].MarksStats.Science.MarkF + " - " + Math.round((StudentsData[2].MarksStats.Science.MarkF / StudentsData[0].NoOfStudents) * 100) + "%" },
+                    ]}
+                  />
+                </div>
+              </div>
                       <div className="row">
                         <div className="col">
                           <VictoryPie
@@ -543,6 +668,9 @@ function App() {
                 (
                   Maths === true ?
                     <div className="container">
+                       <div className="content">{StudentsData[3].Class} Standard</div>
+        <div className="content">Student Strength : {StudentsData[3].NoOfStudents}</div>
+              
                       <div className="row">
                         <div className="col">
                           <VictoryPie
@@ -559,6 +687,7 @@ function App() {
                             ]}
                           />
                         </div>
+
                         <div className="col">
                           <VictoryLegend x={125} y={50}
                             orientation="vertical"
@@ -576,6 +705,33 @@ function App() {
                           />
                         </div>
                       </div>
+  
+                      <div className="row">
+                <div className="col">
+                  <VictoryPie
+                    radius={100}
+                    labels={() => null}
+                              colorScale={["#3BFF00", "red"]}
+                              data={[
+                                { x: "Pass", y: StudentsData[3].NoOfStudents - StudentsData[3].MarksStats.Mathematics.MarkF },
+                                { x: "Fail", y: StudentsData[3].MarksStats.Mathematics.MarkF }
+                              ]}
+                  />
+                </div>
+                <div className="col">
+                  <VictoryLegend x={125} y={50}
+                    orientation="vertical"
+                    gutter={50}
+                   
+                    colorScale={["#3BFF00", "red"]}
+                    style={{ border: { stroke: "black" } }}
+                    data={[
+                      { name: "Pass -" + (StudentsData[3].NoOfStudents - StudentsData[3].MarksStats.Mathematics.MarkF) + " - " + Math.round(((StudentsData[3].NoOfStudents - StudentsData[3].MarksStats.Mathematics.MarkF) / StudentsData[3].NoOfStudents) * 100) + "%" },
+                      { name: "Fail -" + StudentsData[3].MarksStats.Mathematics.MarkF + " - " + Math.round((StudentsData[3].MarksStats.Mathematics.MarkF / StudentsData[3].NoOfStudents) * 100) + "%" },
+                    ]}
+                  />
+                </div>
+              </div>
                       <div className="row">
                         <div className="col">
                           <VictoryPie
@@ -641,6 +797,33 @@ function App() {
                             ]}
                           />
                         </div>
+                        
+                      <div className="row">
+                <div className="col">
+                  <VictoryPie
+                    radius={100}
+                    labels={() => null}
+                              colorScale={["#3BFF00", "red"]}
+                              data={[
+                                { x: "Pass", y: StudentsData[3].NoOfStudents - StudentsData[3].MarksStats.Science.MarkF },
+                                { x: "Fail", y: StudentsData[3].MarksStats.Science.MarkF }
+                              ]}
+                  />
+                </div>
+                <div className="col">
+                  <VictoryLegend x={125} y={50}
+                    orientation="vertical"
+                    gutter={50}
+                   
+                    colorScale={["#3BFF00", "red"]}
+                    style={{ border: { stroke: "black" } }}
+                    data={[
+                      { name: "Pass -" + (StudentsData[3].NoOfStudents - StudentsData[3].MarksStats.Science.MarkF) + " - " + Math.round(((StudentsData[3].NoOfStudents - StudentsData[3].MarksStats.Science.MarkF) / StudentsData[3].NoOfStudents) * 100) + "%" },
+                      { name: "Fail -" + StudentsData[3].MarksStats.Science.MarkF + " - " + Math.round((StudentsData[3].MarksStats.Science.MarkF / StudentsData[3].NoOfStudents) * 100) + "%" },
+                    ]}
+                  />
+                </div>
+              </div>
                         <div className="row">
                           <div className="col">
                             <VictoryPie
@@ -681,6 +864,9 @@ function App() {
                   (
                     Maths === true ?
                       <div className="container">
+ <div className="content">{StudentsData[4].Class} Standard</div>
+        <div className="content">Student Strength : {StudentsData[4].NoOfStudents}</div>
+              
                         <div className="row">
                           <div className="col">
                             <VictoryPie
@@ -714,6 +900,33 @@ function App() {
                             />
                           </div>
                         </div>
+                          
+              <div className="row">
+                <div className="col">
+                  <VictoryPie
+                    radius={100}
+                    labels={() => null}
+                              colorScale={["#3BFF00", "red"]}
+                              data={[
+                                { x: "Pass", y: StudentsData[4].NoOfStudents - StudentsData[4].MarksStats.Mathematics.MarkF },
+                                { x: "Fail", y: StudentsData[4].MarksStats.Mathematics.MarkF }
+                              ]}
+                  />
+                </div>
+                <div className="col">
+                  <VictoryLegend x={125} y={50}
+                    orientation="vertical"
+                    gutter={50}
+                   
+                    colorScale={["#3BFF00", "red"]}
+                    style={{ border: { stroke: "black" } }}
+                    data={[
+                      { name: "Pass -" + (StudentsData[4].NoOfStudents - StudentsData[4].MarksStats.Mathematics.MarkF) + " - " + Math.round(((StudentsData[4].NoOfStudents - StudentsData[4].MarksStats.Mathematics.MarkF) / StudentsData[4].NoOfStudents) * 100) + "%" },
+                      { name: "Fail -" + StudentsData[4].MarksStats.Mathematics.MarkF + " - " + Math.round((StudentsData[4].MarksStats.Mathematics.MarkF / StudentsData[4].NoOfStudents) * 100) + "%" },
+                    ]}
+                  />
+                </div>
+              </div>
                         <div className="row">
                           <div className="col">
                             <VictoryPie
@@ -763,6 +976,7 @@ function App() {
                               ]}
                             />
                           </div>
+                          
                           <div className="col">
                             <VictoryLegend x={125} y={50}
                               orientation="vertical"
@@ -779,6 +993,33 @@ function App() {
                               ]}
                             />
                           </div>
+                                
+              <div className="row">
+                <div className="col">
+                  <VictoryPie
+                    radius={100}
+                    labels={() => null}
+                              colorScale={["#3BFF00", "red"]}
+                              data={[
+                                { x: "Pass", y: StudentsData[4].NoOfStudents - StudentsData[4].MarksStats.Mathematics.MarkF },
+                                { x: "Fail", y: StudentsData[4].MarksStats.Mathematics.MarkF }
+                              ]}
+                  />
+                </div>
+                <div className="col">
+                  <VictoryLegend x={125} y={50}
+                    orientation="vertical"
+                    gutter={50}
+                   
+                    colorScale={["#3BFF00", "red"]}
+                    style={{ border: { stroke: "black" } }}
+                    data={[
+                      { name: "Pass -" + (StudentsData[4].NoOfStudents - StudentsData[4].MarksStats.Science.MarkF) + " - " + Math.round(((StudentsData[4].NoOfStudents - StudentsData[4].MarksStats.Science.MarkF) / StudentsData[4].NoOfStudents) * 100) + "%" },
+                      { name: "Fail -" + StudentsData[4].MarksStats.Science.MarkF + " - " + Math.round((StudentsData[4].MarksStats.Science.MarkF / StudentsData[4].NoOfStudents) * 100) + "%" },
+                    ]}
+                  />
+                  </div>
+                  </div>
                           <div className="row">
                             <div className="col">
                               <VictoryPie
